@@ -1,0 +1,22 @@
+{
+  "name": "jodo",
+  "version": "1.0.0",
+  "description": "Minimalist in-process JSON File Database",
+  "main": "Jodo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mhgolkar/Jodo/"
+  },
+  "keywords": [
+    "jodo",
+    "json",
+    "flat file",
+    "database",
+    "no dependencies"
+  ],
+  "author": "Morteza H. Golkar",
+  "license": "MIT"
+}
