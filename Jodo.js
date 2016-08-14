@@ -10,7 +10,7 @@
 //  |   JavaScript Object Database Operation     | 
 //  '--------------------------------------------'
 //  Jodo
-//  1.0.0
+//  1.0.1
 //  Morteza H. Golkar
 //  License: MIT
 */
