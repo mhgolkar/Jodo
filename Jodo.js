@@ -31,7 +31,7 @@ var Jodo = function(xjx){
         db = document ? Object.assign(db, JSON.parse(document)) : false;
     } else if(typeof xjx == 'object'){
         var db = new E.EventEmitter();
-        db = document ? Object.assign(db, xjx) : false;
+        db = xjx ? Object.assign(db, xjx) : false;
     };
     // jodo helper Functions
         // The Magic 'any' Function:
