@@ -10,7 +10,7 @@
 //  |   JavaScript Object Database Operation     | 
 //  '--------------------------------------------'
 //  Jodo
-//  1.0.1
+//  1.1.1
 //  Morteza H. Golkar
 //  License: MIT
 */
@@ -27,12 +27,13 @@ var Jodo = function(xjx){
         // From file or Object ?
     if(typeof xjx == 'string'){
         var document = fs.readFileSync(xjx, "utf8");
-        var db = new E.EventEmitter();
-        db = document ? Object.assign(db, JSON.parse(document)) : false;
+        var db = document ? JSON.parse(document) : false;
     } else if(typeof xjx == 'object'){
-        var db = new E.EventEmitter();
-        db = xjx ? Object.assign(db, xjx) : false;
+        var db = xjx ? xjx : false;
     };
+    Object.defineProperty(db, "_EventEmitter_", { enumerable: false, value: new E.EventEmitter() });
+    Object.defineProperty(db, "on", { enumerable: false, value: function(x,y,z) { db._EventEmitter_.on(x,y,z); } });
+    Object.defineProperty(db, "once", { enumerable: false, value: function(x,y,z) { db._EventEmitter_.once(x,y,z); } });
     // jodo helper Functions
         // The Magic 'any' Function:
     const any_func = function(_where, _cond, _what, _ci, _callback){
@@ -132,7 +133,7 @@ var Jodo = function(xjx){
                 var res = search(x);
                 if (res) result = result.concat( res );
             });
-            if(result.length > 0) db.emit('found', result);
+            if(result.length > 0) db._EventEmitter_.emit('found', result);
             return result;
         } else if (typeof box == 'object') {
             // object
@@ -141,7 +142,7 @@ var Jodo = function(xjx){
                 var res = search(box[x]);
                 if (res) result[x] = res;
             }
-            if(Object.keys(result).length > 0) db.emit('found', result);
+            if(Object.keys(result).length > 0) db._EventEmitter_.emit('found', result);
             return result;                            
         };
     };
@@ -189,11 +190,11 @@ var Jodo = function(xjx){
                                     } else {
                                         try{
                                             var stuty = { path: absolute, status: fs.statSync(absolute) };
-                                            db.emit('saved', stuty);
+                                            db._EventEmitter_.emit('saved', stuty);
                                         } catch(x){};
                                     };
                                     return savySave();
-                                });                               
+                                });
                             };   
                         };
                         savySave();
