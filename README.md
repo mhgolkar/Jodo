@@ -57,7 +57,8 @@ both returns jodo-object, with these properties:
 
 #### Events
 * `saved` : Successfully.
-* `found` : Means `any()` has results.
+* `found` : Means `any()` has results.  
+Note: Jodo has `db.on('event',...)` & `db.once('event',...)` functions for listening [only]; for more advanced jobs use:  `db._EventEmitter_.on('event',...)`
 
 ### License
 MIT  
