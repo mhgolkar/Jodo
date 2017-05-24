@@ -2,14 +2,14 @@
 **JavaScript Object Database Operation**  
 Minimalist Lightweight in-process JSON File Database
 
-Jodo Creates a minimal simple database out of a normal object or JSON file. Any Jodo Database is an instance of Object and caches all data in memory.
+Jodo Makes a minimal simple database out of a normal object or a JSON file. Any Jodo Database is an instance of `Object` and caches data in memory.
 
 --------------------------------
 
 ### Quick Start
 #### Installation
-**NPM:** `$ npm install jodo`
- or **Manual:** Just copy the `Jodo.js` file to your work directory.
+**NPM:** `$ npm install jodo`  
+ or **Manual:** copy the `Jodo.js` file to your project.
 
 #### Usage
 ```
@@ -38,7 +38,7 @@ db.save();
 Creating a Jodo Database-Object:  
 * `jodo('path/to/file.json')`
 * `jodo(object)`   
-both returns jodo-object, with these properties:
+each returns jodo-object, with these properties:
 
     * jodo-object`.path` String (path of flat json file)
 
@@ -51,8 +51,8 @@ both returns jodo-object, with these properties:
         * condition [String] _optional (!=,>=,... Default: ==)
         * value [String] what to search
         * Case Insensitivity [Boolean] Default: true
-        * Manipulator_function(value, entry) // Get called for each found value and entry. returning *not undefined* means change value to what's returned.
-    * nested-jodo-subfields`.any()` // to the dark deeps   
+        * Manipulator_function(value, entry) // It gets called for each found value and entry. returning *not undefined* means it changed value to what is returned.
+    * nested-jodo-subfields`.any()` // to the deeper levels   
     Exmple: `db.any();  db.users.any();  db.users.persians.any();`
 
 #### Events
