@@ -1,4 +1,7 @@
 # Jodo
+
+## [ deprecated ]
+
 **JavaScript Object Database Operation**  
 Minimalist Lightweight in-process JSON File Database
 
